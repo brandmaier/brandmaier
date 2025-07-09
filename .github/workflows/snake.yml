@@ -9,8 +9,8 @@ permissions:
 
 on:
   schedule:
-      # every 6 hours
-    - cron: "0 */6 * * *"
+      # every day at 6pm hours
+    - cron: "0 18 * * *"
 
 # This command allows us to run the Action manually from the Actions tab.
   workflow_dispatch:
