@@ -32,6 +32,10 @@ If you are here for our structural equation modeling semtree package, you can fi
 
 ![](profile-3d-contrib/profile-gitblock.svg)
 
+### My R packages
+
+![](rpackage_downloads.png)
+
 ## Let's colaborate 
 
 🚀 I'm always open to collaborating on exciting projects and ideas. Feel free to reach out!
