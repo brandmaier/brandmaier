@@ -1,0 +1,33 @@
+name: 'Update CRAN package downloads plot'
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-plot:
+    runs-on: ubuntu-latest
+    container:
+      image: rocker/r-ver:4.3.1
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install R packages
+        run: |
+          Rscript -e "install.packages(c('cranlogs','ggplot2','tidyverse'), repos='https://cloud.r-project.org')"
+      - name: Run script
+        run: Rscript CRAN-R-package-downloads.R
+      - name: Commit results
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add rpackage_downloads.png
+          if [ -n "$(git status --porcelain rpackage_downloads.png)" ]; then
+            git commit -m "Update CRAN downloads plot"
+            git push
+          else
+            echo "No changes to commit"
+          fi
