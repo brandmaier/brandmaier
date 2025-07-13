@@ -12,12 +12,12 @@ jobs:
   update-plot:
     runs-on: ubuntu-latest
     container:
-      image: rocker/r-ver:4.3.1
+      image: rocker/tidyverse
     steps:
       - uses: actions/checkout@v3
       - name: Install R packages
         run: |
-          Rscript -e "install.packages(c('cranlogs','ggplot2','tidyverse'), repos='https://cloud.r-project.org')"
+          Rscript -e "install.packages(c('cranlogs'), repos='https://cloud.r-project.org')"
       - name: Run script
         run: Rscript CRAN-R-package-downloads.R
       - name: Commit results
