@@ -23,8 +23,8 @@ jobs:
       - name: Commit results
         working-directory: ${{ github.workspace }}
         run: |
-          git --global config user.name github-actions
-          git --global config user.email github-actions@github.com
+          git config --global user.name github-actions
+          git config --global user.email github-actions@github.com
           git add rpackage_downloads.png
           if [ -n "$(git status --porcelain rpackage_downloads.png)" ]; then
             git commit -m "Update CRAN downloads plot"
