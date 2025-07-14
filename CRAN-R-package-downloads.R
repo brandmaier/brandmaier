@@ -21,7 +21,7 @@ monthly$month <- as.Date(paste0(monthly$month, "-01"))
 
 # Plot
 ggplot(monthly, aes(x = month, y = total, group=package, color=package)) +
-  geom_smooth(size = 1) +
+  geom_smooth(linewidth = 1) +
   geom_point(aes(color=package)) +
   labs(title = "Monthly Downloads of R packages (RStudio CRAN mirror)",
        x = "Month",
